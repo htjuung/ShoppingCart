@@ -1,4 +1,7 @@
 <template>
+    <div class="text-end">
+        <button class="btn btn-primary" type="button" @click="$refs.productModal.showModal()">Add Item</button>
+    </div>
     <table class="table mt-4">
         <thead>
             <tr>
@@ -33,15 +36,21 @@
             </tr>
         </tbody>
     </table>
+    <ProductModal ref="productModal"></ProductModal>
 </template>
 
 <script>
+import ProductModal from '../components/ProductModal.vue'
+
 export default {
   data () {
     return {
       products: [],
       pagination: {}
     }
+  },
+  components: {
+    ProductModal
   },
   methods: {
     getProducts () {
